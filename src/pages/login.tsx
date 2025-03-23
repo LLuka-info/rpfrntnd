@@ -64,7 +64,7 @@ export default function LoginPage() {
           <button
             type="submit"
             className={styles.loginButton}
-            onClick={() => window.location.reload()}
+            
           >
             Login
           </button>
