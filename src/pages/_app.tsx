@@ -16,32 +16,33 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const user = localStorage.getItem("user");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    setCart(cart);
+
     if (user) {
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
+      if (
+        router.pathname !== "/login" &&
+        router.pathname !== "/register"
+      ) {
+        router.push("/login");
+      }
     }
-
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    setCart(cart);
-  }, []);
+  }, [router]);
 
   if (isAuthenticated === null) {
-    return <div>Loading...</div>;
-  }
-
-  if (!isAuthenticated && router.pathname !== "/login" && router.pathname !== "/register") {
-    router.push("/login");
-    return null;
+    return <div>Loading...</div>; // or a spinner
   }
 
   return (
     <Elements stripe={stripePromise}>
       <Layout cart={cart}>
-      <AnnouncementBar />
+        <AnnouncementBar />
         <Component {...pageProps} />
       </Layout>
     </Elements>
-    
   );
 }
