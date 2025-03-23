@@ -66,7 +66,7 @@ export default function LoginPage() {
             className={styles.loginButton}
             
           >
-            Login. Test
+            Login
           </button>
         </form>
       </div>
