@@ -1,0 +1,17 @@
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #1e3a8a; /* Dark blue for text */
+  margin-top: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  color: #1e3a8a; /* Dark blue for links */
+}
+
+.footer a:hover {
+  color: #3b82f6; /* Lighter blue for hover */
+}

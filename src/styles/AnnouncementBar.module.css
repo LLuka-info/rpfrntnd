@@ -1,0 +1,29 @@
+.marqueeContainer {
+    background-color: rgba(9, 1, 39, 0.9);
+    color: #fff;
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 18px;
+    position: relative;
+  }
+  
+  .marquee {
+    display: inline-block;
+    width: max-content;
+    animation: scroll 14s linear infinite;
+  }
+  
+  .marquee span {
+    margin-right: 100px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(250%)
+    }
+    100% {
+      transform: translateX(-100%)
+    }
+  }
+  

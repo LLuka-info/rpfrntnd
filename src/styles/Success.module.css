@@ -1,0 +1,35 @@
+.successContainer {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.backButton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #89A8B2;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #B3C8CF;
+}

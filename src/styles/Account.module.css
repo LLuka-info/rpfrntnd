@@ -1,0 +1,59 @@
+.account {
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f4f8, #e0e7ec);
+}
+
+.account h2 {
+  font-size: 2rem;
+  color: #1e3a8a; /* Dark blue for titles */
+}
+
+.userInfo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.userInfo button {
+  background-color: #3b82f6; /* Blue for buttons */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.userInfo button:hover {
+  background-color: #2563eb; /* Darker blue for hover */
+}
+
+.orders {
+  margin-top: 20px;
+}
+
+.orders h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.order {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.order p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.order p:last-child {
+  margin-bottom: 0;
+}
