@@ -12,24 +12,29 @@ export default function LoginPage() {
       router.push("/");
     }
   }, [router]);
-  const handleLogin = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, { email, password }, {
-        headers: { "Content-Type": "application/json" },
-      });
-      if (res.data.user) {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        alert("Login successful!");
-        router.push("/home");
-      } else {
-        alert("Invalid email or password");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      alert("Login failed");
+ const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
+      email,
+      password
+    }, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.data.user) {
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      alert("Login successful!");
+      router.replace("/"); // ✅ use replace to avoid login -> back navigation
+    } else {
+      alert("Invalid email or password");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Login failed");
+  }
+};
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
@@ -59,7 +64,7 @@ export default function LoginPage() {
           <button
             type="submit"
             className={styles.loginButton}
-            onClick={() => window.location.reload()}
+            
           >
             Login
           </button>
