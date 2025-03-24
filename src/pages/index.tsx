@@ -13,8 +13,11 @@ interface Product {
 export default function HomePage() {
   const [popularProducts, setPopularProducts] = useState<Product[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
-  const backgroundImages = ["/mainPagebg1.png", "/mainPagebg2.png"];
+  const [isMobile, setIsMobile] = useState(false);
+  const desktopImages = ["/mainPagebg1.png", "/mainPagebg2.png"];
+  const mobileImages = ["/mainPageMobile1.png", "/mainPageMobile2.png"];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const backgroundImages = isMobile ? mobileImages : desktopImages;
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URL}/api/products`)
@@ -22,15 +25,29 @@ export default function HomePage() {
       .catch((error) => console.error("Error fetching popular products:", error));
   }, []);
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgroundImages]);
+
   const currentHeroStyle = {
     backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
   };
+
   const isDarkHero = currentImageIndex === 1;
+
   return (
     <div className={styles.home}>
       <section
