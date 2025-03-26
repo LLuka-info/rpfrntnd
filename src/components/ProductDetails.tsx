@@ -122,7 +122,7 @@ export default function ProductDetails({ productId }: ProductDetailsProps) {
 
       <div className={styles.productInfo}>
         <h1 className={styles.productName}>{product.name}</h1>
-        <p className={styles.productPrice}>${product.price}</p>
+        <p className={styles.productPrice}>{product.price} RON</p>
         <p className={styles.productDescription}>{product.description}</p>
 
         <div className={styles.sizeColorSelection}>
