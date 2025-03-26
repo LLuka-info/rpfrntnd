@@ -68,7 +68,7 @@ export default function ProductsPage() {
                 />
 
               <h3 className={styles.productName}>{product.name}</h3>
-              <p className={styles.productPrice}>${product.price}</p>
+              <p className={styles.productPrice}>{product.price} RON</p>
               <Link href={`/products/${product._id}`} className={styles.productButton}>
                 Detalii
               </Link>
