@@ -11,7 +11,7 @@
   .marquee {
     display: inline-block;
     width: max-content;
-    animation: scroll 14s linear infinite;
+    animation: scroll 22s linear infinite;
   }
   
   .marquee span {
