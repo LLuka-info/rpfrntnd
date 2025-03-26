@@ -116,11 +116,11 @@ export default function Checkout() {
           cart.map((item) => (
             <div key={item._id} className={styles.orderItem}>
               <span>{item.name} (x{item.quantity})</span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
+              <span>{(item.price * item.quantity).toFixed(2)} RON</span>
             </div>
           ))
         )}
-        <h3>Total: ${totalPrice.toFixed(2)}</h3>
+        <h3>Total: {totalPrice.toFixed(2)} RON</h3>
       </div>
       <div className={styles.formGroup}>
         <h2 className={styles.shippingText}>Shipping Details</h2>
