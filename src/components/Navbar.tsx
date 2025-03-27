@@ -9,7 +9,15 @@ export default function Navbar({ cart }: NavbarProps) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link href="/home">RoPlug</Link>
+          <Link href="/">
+          <Image
+            src="/public/logogogo.png" 
+            alt="RoPlug"
+            width={284} // Set appropriate width
+            height={499} // Set appropriate height
+            className={styles.logo}
+          />
+        </Link>
       </div>
       <ul className={styles.navLinks}>
         <li>
