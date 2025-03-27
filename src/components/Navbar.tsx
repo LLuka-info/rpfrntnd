@@ -22,7 +22,7 @@ export default function Navbar({ cart }: NavbarProps) {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // SVG Icons
+  // Improved SVG Icons
   const homeIcon = (
     <svg viewBox="0 0 24 24" width="20" height="20">
       <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
@@ -31,7 +31,7 @@ export default function Navbar({ cart }: NavbarProps) {
 
   const clothesIcon = (
     <svg viewBox="0 0 24 24" width="20" height="20">
-      <path d="M21.6 18.2L13 11.75v-.91a3 3 0 00-.75-2A3 3 0 0016 5a3 3 0 00-3-3 3 3 0 00-3 3c0 .84.3 1.6.75 2.19l-.04.03-7.31 6.47c-.62.58-1 1.41-1 2.31V20a2 2 0 002 2h16a2 2 0 002-2v-1.5c0-.9-.38-1.73-1-2.3z" fill="currentColor"/>
+      <path d="M19.5 6c-1.3 0-2.5.9-2.5 2.2V13h-2V8.2C15 6.9 13.8 6 12.5 6S10 6.9 10 8.2V13H8V8.2C8 6.9 6.8 6 5.5 6S3 6.9 3 8.2V20h18V8.2C21 6.9 19.8 6 18.5 6z" fill="currentColor"/>
     </svg>
   );
 
@@ -64,30 +64,33 @@ export default function Navbar({ cart }: NavbarProps) {
       <ul className={styles.navLinks}>
         <li>
           <Link href="/" className={styles.navLink}>
-            {homeIcon}
-            {!isMobile && 'Acasă'}
+            <span className={styles.icon}>{homeIcon}</span>
+            {!isMobile && <span className={styles.linkText}>Acasă</span>}
           </Link>
         </li>
         <li>
           <Link href="/products" className={styles.navLink}>
-            {clothesIcon}
-            {!isMobile && 'Haine'}
+            <span className={styles.icon}>{clothesIcon}</span>
+            {!isMobile && <span className={styles.linkText}>Haine</span>}
           </Link>
         </li>       
         <li>
           <Link href="/cart" className={styles.navLink}>
-            {cartIcon}
+            <span className={styles.icon}>{cartIcon}</span>
             {!isMobile && (
-              <>
+              <span className={styles.linkText}>
                 Coș <span className={styles.cartCount}>({cart.length})</span>
-              </>
+              </span>
+            )}
+            {isMobile && cart.length > 0 && (
+              <span className={styles.mobileCartCount}>{cart.length}</span>
             )}
           </Link>
         </li>
         <li>
           <Link href="/account" className={styles.navLink}>
-            {userIcon}
-            {!isMobile && username}
+            <span className={styles.icon}>{userIcon}</span>
+            {!isMobile && <span className={styles.linkText}>{username}</span>}
           </Link>
         </li>
       </ul>
