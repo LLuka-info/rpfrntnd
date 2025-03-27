@@ -33,11 +33,11 @@ export default function Navbar({ cart }: NavbarProps) {
 const clothesIcon = (
   <svg 
     viewBox="100 0 440 512"  // Adjusted viewBox to focus on the t-shirt
-    width="17" 
-    height="17" 
+    width="18" 
+    height="18" 
     fill="none" 
     stroke="currentColor"  // Will inherit the text color
-    strokeWidth="40"       // Thinner stroke for better proportions
+    strokeWidth="50"       // Thinner stroke for better proportions
     strokeLinecap="round"
     strokeLinejoin="round"
   >
