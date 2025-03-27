@@ -22,28 +22,34 @@ export default function Navbar({ cart }: NavbarProps) {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // Improved SVG Icons
+  // Outline-style SVG Icons (stroke only)
   const homeIcon = (
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <path d="M9 22V12h6v10"/>
     </svg>
   );
 
   const clothesIcon = (
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <path d="M19.5 6c-1.3 0-2.5.9-2.5 2.2V13h-2V8.2C15 6.9 13.8 6 12.5 6S10 6.9 10 8.2V13H8V8.2C8 6.9 6.8 6 5.5 6S3 6.9 3 8.2V20h18V8.2C21 6.9 19.8 6 18.5 6z" fill="currentColor"/>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20.5 7.5L12 2L3.5 7.5L5 18H19L20.5 7.5Z"/>
+      <path d="M12 22V12"/>
+      <path d="M8 12H16"/>
     </svg>
   );
 
   const cartIcon = (
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" fill="currentColor"/>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="8" cy="21" r="1"/>
+      <circle cx="19" cy="21" r="1"/>
+      <path d="M2.05 2.05H4L6.7 15.95a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
     </svg>
   );
 
   const userIcon = (
-    <svg viewBox="0 0 24 24" width="20" height="20">
-      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
     </svg>
   );
 
