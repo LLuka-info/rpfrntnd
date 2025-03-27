@@ -37,7 +37,7 @@ const clothesIcon = (
     height="20" 
     fill="none" 
     stroke="currentColor"  // Will inherit the text color
-    strokeWidth="15"       // Thinner stroke for better proportions
+    strokeWidth="30"       // Thinner stroke for better proportions
     strokeLinecap="round"
     strokeLinejoin="round"
   >
