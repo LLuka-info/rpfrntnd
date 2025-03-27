@@ -19,6 +19,16 @@
   object-fit: contain;
 }
 
+.logo {
+  width: 120px; /* Default size */
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* Smaller size for mobile */
+  }
+}
+
 .navLinks {
   display: flex;
   list-style: none;
