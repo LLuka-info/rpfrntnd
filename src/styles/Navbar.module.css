@@ -47,12 +47,18 @@
   transform: translateY(-1px);
 }
 
+.navLink:hover .icon {
+  stroke: #3b82f6;
+}
+
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   height: 24px;
+  stroke: #1e3a8a;
+  transition: stroke 0.2s ease;
 }
 
 .linkText {
