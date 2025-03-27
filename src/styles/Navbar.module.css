@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.logo {
+.logo a{
   height: auto;
   max-width: 100%;
   object-fit: contain;
