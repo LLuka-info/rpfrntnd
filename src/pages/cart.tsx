@@ -69,7 +69,7 @@ export default function Cart() {
               />
               <div className={styles.cartItemInfo}>
                 <h3 className={styles.cartItemName}>{item.name}</h3>
-                <p className={styles.cartItemPrice}>${item.price}</p>
+                <p className={styles.cartItemPrice}>{item.price} RON</p>
 
                 {item.selectedSize && (
                   <p className={styles.cartItemMeta}>Size: {item.selectedSize}</p>
