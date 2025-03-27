@@ -14,8 +14,8 @@ export default function Navbar({ cart }: NavbarProps) {
           <Image
             src="/logogog.png" 
             alt="RoPlug"
-            width={284} // Set appropriate width
-            height={499} // Set appropriate height
+            width={499} // Set appropriate width
+            height={284} // Set appropriate height
             className={styles.logo}
           />
         </Link>
