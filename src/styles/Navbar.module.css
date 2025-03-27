@@ -24,7 +24,7 @@
 .navLinks {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1.8rem;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -38,37 +38,72 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .navLink:hover {
   color: #3b82f6;
+  transform: translateY(-1px);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.linkText {
+  white-space: nowrap;
 }
 
 .cartCount {
   margin-left: 0.2rem;
+  font-weight: 600;
+}
+
+.mobileCartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
   
   .logo {
     width: 100px;
   }
   
-  .navLink span:not(.cartCount) {
+  .navLinks {
+    gap: 1.5rem;
+  }
+  
+  .linkText {
     display: none;
   }
   
-  .navLinks {
-    gap: 1.2rem;
+  .navLink {
+    padding: 0.5rem;
   }
   
-  .cartCount {
-    display: inline;
-    font-size: 0.8rem;
+  .icon {
+    width: 20px;
+    height: 20px;
   }
 }
