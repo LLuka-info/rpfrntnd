@@ -110,7 +110,7 @@ export default function Cart() {
             </div>
           ))}
           <div className={styles.cartTotal}>
-            <h3>Total: ${totalPrice.toFixed(2)}</h3>
+            <h3>Total: {totalPrice.toFixed(2)} RON</h3>
             <button className={styles.checkoutButton} onClick={goToCheckout}>
               Checkout
             </button>
