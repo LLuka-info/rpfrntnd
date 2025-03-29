@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         { name: "Phone", value: customer.phone || "N/A" },
         { name: "Address", value: `${customer.address}, ${customer.city}, ${customer.country}` },
         { name: "Payment", value: customer.paymentMethod },
-        { name: "Total", value: `${totalAmount} EUR` },
+        { name: "Total", value: `${totalAmount} RON` },
         {
           name: "Products",
           value: cart
