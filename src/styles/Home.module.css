@@ -64,10 +64,6 @@
   margin-bottom: 50px;
 }
 
-heroButton {
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
 .heroButton {
   background-color: transparent;
