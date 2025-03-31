@@ -2,13 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "@/styles/Products.module.css";
 import Link from "next/link";
-
-const router = useRouter();
-const { category: categoryQuery, popular } = router.query;
-
-useEffect(() => {
-  if (categoryQuery) setCategory(categoryQuery as string);
-}, [categoryQuery]);
+import { useRouter } from "next/router";
 
 interface Product {
   _id: string;
@@ -24,6 +18,13 @@ export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [category, setCategory] = useState<string>("");
+
+  const router = useRouter();
+  const { category: categoryQuery, popular } = router.query;
+
+  useEffect(() => {
+    if (categoryQuery) setCategory(categoryQuery as string);
+  }, [categoryQuery]);
 
   useEffect(() => {
     fetchProducts();
