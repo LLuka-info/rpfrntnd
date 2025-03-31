@@ -115,23 +115,16 @@
   box-shadow: 0px 0px 6px rgba(255, 90, 95, 0.5);
 }
 
-/* Dropdown arrow customization */
+
 .sizeColorSelection {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.sizeColorSelection::after {
-  content: "▼"; /* Custom dropdown arrow */
-  font-size: 14px;
-  color: #999;
-  position: absolute;
-  right: 15px;
-  pointer-events: none;
-}
 
-/* Special styling for 'incaltaminte' (shoe sizes) */
 .shoeSize select {
   background-color: #f8f8f8;
   border-color: #ccc;
