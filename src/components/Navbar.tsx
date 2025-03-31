@@ -10,6 +10,8 @@ interface NavbarProps {
 export default function Navbar({ cart }: NavbarProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [username, setUsername] = useState("Cont");
+  const [showDropdown, setShowDropdown] = useState(false); // For desktop dropdown
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false); // For mobile dropdown
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -22,7 +24,6 @@ export default function Navbar({ cart }: NavbarProps) {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // Outline-style SVG Icons (stroke only)
   const homeIcon = (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -30,20 +31,20 @@ export default function Navbar({ cart }: NavbarProps) {
     </svg>
   );
 
-const clothesIcon = (
-  <svg 
-    viewBox="100 0 440 512"  // Adjusted viewBox to focus on the t-shirt
-    width="18" 
-    height="18" 
-    fill="none" 
-    stroke="currentColor"  // Will inherit the text color
-    strokeWidth="50"       // Thinner stroke for better proportions
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M631.2 96.5L436.5 0C416.4 27.8 371.9 47.2 320 47.2S223.6 27.8 203.5 0L8.8 96.5c-7.9 4-11.1 13.6-7.2 21.5l57.2 114.5c4 7.9 13.6 11.1 21.5 7.2l56.6-27.7c10.6-5.2 23 2.5 23 14.4V480c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32V226.3c0-11.8 12.4-19.6 23-14.4l56.6 27.7c7.9 4 17.5 .8 21.5-7.2L638.3 118c4-7.9 .8-17.6-7.1-21.5z"/>
-  </svg>
-);
+  const clothesIcon = (
+    <svg 
+      viewBox="100 0 440 512"
+      width="18" 
+      height="18" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="50"       
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M631.2 96.5L436.5 0C416.4 27.8 371.9 47.2 320 47.2S223.6 27.8 203.5 0L8.8 96.5c-7.9 4-11.1 13.6-7.2 21.5l57.2 114.5c4 7.9 13.6 11.1 21.5 7.2l56.6-27.7c10.6-5.2 23 2.5 23 14.4V480c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32V226.3c0-11.8 12.4-19.6 23-14.4l56.6 27.7c7.9 4 17.5 .8 21.5-7.2L638.3 118c4-7.9 .8-17.6-7.1-21.5z"/>
+    </svg>
+  );
 
   const cartIcon = (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -81,12 +82,69 @@ const clothesIcon = (
             {!isMobile && <span className={styles.linkText}>Acasă</span>}
           </Link>
         </li>
-        <li>
-          <Link href="/products" className={styles.navLink}>
+
+        {/* Haine dropdown */}
+        <li
+          className={styles.navItem}
+          onMouseEnter={() => setShowDropdown(true)}
+          onMouseLeave={() => setShowDropdown(false)}
+        >
+          <div className={styles.navLink}>
             <span className={styles.icon}>{clothesIcon}</span>
             {!isMobile && <span className={styles.linkText}>Haine</span>}
+          </div>
+          {!isMobile && showDropdown && (
+            <ul className={styles.dropdown}>
+              {["tricouri", "pantaloni", "shorts", "hanorace", "geci"].map((cat) => (
+                <li key={cat}>
+                  <Link href={`/products?category=${cat}`}>
+                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+
+        {/* Incaltaminte and Populare */}
+        <li>
+          <Link href="/products?category=incaltaminte" className={styles.navLink}>
+            {!isMobile && <span className={styles.linkText}>Încălțăminte</span>}
           </Link>
-        </li>       
+        </li>
+
+        <li>
+          <Link href="/products?popular=true" className={styles.navLink}>
+            {!isMobile && <span className={styles.linkText}>Populare</span>}
+          </Link>
+        </li>
+
+        {/* Mobile dropdown */}
+        <li>
+          <div
+            onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+            className={styles.navLink}
+          >
+            <span className={styles.icon}>{clothesIcon}</span>
+            <span className={styles.linkText}>Produse</span>
+          </div>
+          {isMobile && mobileDropdownOpen && (
+            <ul className={styles.mobileDropdown}>
+              {["tricouri", "pantaloni", "shorts", "hanorace", "geci", "incaltaminte"].map((cat) => (
+                <li key={cat}>
+                  <Link href={`/products?category=${cat}`}>
+                    {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/products?popular=true">Populare</Link>
+              </li>
+            </ul>
+          )}
+        </li>
+
+        {/* Cart and User */}
         <li>
           <Link href="/cart" className={styles.navLink}>
             <span className={styles.icon}>{cartIcon}</span>
@@ -100,6 +158,7 @@ const clothesIcon = (
             )}
           </Link>
         </li>
+
         <li>
           <Link href="/account" className={styles.navLink}>
             <span className={styles.icon}>{userIcon}</span>
