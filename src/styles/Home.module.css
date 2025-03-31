@@ -64,20 +64,38 @@
   margin-bottom: 50px;
 }
 
-.heroButton {
-  background-color: white;
-  color: #3b82f6;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+heroButton {
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.heroButton:hover {
-  background-color: #e0e7ec;
-  color: #1e3a8a;
+.heroButton {
+  background-color: transparent;
+  color: #3b82f6;
+  padding: 10px 20px;
+  border: 2px solid #3b82f6;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.heroButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #3b82f6;
+  z-index: 0;
+  transition: width 0.3s ease;
+}
+
+.heroButton:hover::before {
+  width: 100%;
 }
 
 .features {
