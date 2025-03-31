@@ -15,12 +15,10 @@
 }
 
 .heroDarkText .heroButton {
-  background-color: rgb(224, 183, 144);
   color: #ffffff;
 }
 
 .heroDarkText .heroButton:hover {
-  background-color: #e0e7ec;
   color: rgb(0, 130, 182);
 }
 
@@ -68,14 +66,16 @@
 .heroButton {
   background-color: transparent;
   color: #ededed;
-  padding: 10px 20px;
+  padding: 14px 30px;
   border: 2px solid #ededed;
-  border-radius: 3px;
-  font-size: 16px;
+  border-radius: 0; /* No rounding */
+  font-size: 18px;
   font-weight: bold;
   position: relative;
   overflow: hidden;
-  transition: color 0.3s ease;
+  cursor: pointer;
+  z-index: 0;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .heroButton::before {
@@ -85,14 +85,20 @@
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: #b3e5fc;
-  z-index: 0;
-  transition: width 0.3s ease;
+  background-color: #b3e5fc; /* Slide-in pastel background */
+  transition: width 0.4s ease;
+  z-index: -1; /* Makes sure text is above background */
 }
 
 .heroButton:hover::before {
   width: 100%;
 }
+
+.heroButton:hover {
+  color: rgb(0, 130, 182); /* Darker text on light background */
+  border-color: rgb(0, 130, 182);
+}
+
 
 .features {
   text-align: center;
