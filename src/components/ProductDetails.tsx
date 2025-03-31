@@ -21,6 +21,23 @@ interface Product {
 interface ProductDetailsProps {
   productId: string;
 }
+const shoeSizeMapping = [
+  { eu: "37", us: "5" },
+  { eu: "37.5", us: "5.5" },
+  { eu: "38", us: "6" },
+  { eu: "38.5", us: "6.5" },
+  { eu: "39", us: "7" },
+  { eu: "39.5", us: "7.5" },
+  { eu: "40", us: "8" },
+  { eu: "40.5", us: "8.5" },
+  { eu: "41", us: "9" },
+  { eu: "41.5", us: "9.5" },
+  { eu: "42", us: "10" },
+  { eu: "42.5", us: "10.5" },
+  { eu: "43", us: "11" },
+  { eu: "43.5", us: "11.5" },
+  { eu: "44", us: "12" },
+];
 
 export default function ProductDetails({ productId }: ProductDetailsProps) {
   const [product, setProduct] = useState<Product | null>(null);
@@ -125,6 +142,7 @@ export default function ProductDetails({ productId }: ProductDetailsProps) {
         <p className={styles.productPrice}>{product.price} RON</p>
         <p className={styles.productDescription}>{product.description}</p>
 
+        
         <div className={styles.sizeColorSelection}>
           <select
             value={selectedSize}
@@ -132,11 +150,17 @@ export default function ProductDetails({ productId }: ProductDetailsProps) {
             required
           >
             <option value="">Select Size</option>
-            {product.sizes.map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
+            {product.category === "incaltaminte"
+              ? shoeSizeMapping.map(({ eu, us }) => (
+                  <option key={eu} value={eu}>
+                    {eu} (US {us})
+                  </option>
+                ))
+              : product.sizes.map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
           </select>
         </div>
 
