@@ -15,11 +15,13 @@
 }
 
 .heroDarkText .heroButton {
+  border-color: #ffffff;
   color: #ffffff;
 }
 
 .heroDarkText .heroButton:hover {
   color: rgb(0, 130, 182);
+  border-color: rgb(0, 130, 182);
 }
 
 
