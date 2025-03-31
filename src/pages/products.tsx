@@ -10,6 +10,7 @@ interface Product {
   price: number;
   category: string;
   images: { url: string; label: string }[];
+  popular?: boolean;
 }
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
