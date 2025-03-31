@@ -16,6 +16,7 @@ interface Product {
   images: ProductImage[];
   sizes: string[];
   colors: string[];
+  category: string;
 }
 
 interface ProductDetailsProps {
