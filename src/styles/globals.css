@@ -21,7 +21,7 @@ button {
   transition: background-color 0.3s;
 }
 
-.btn {
+.button {
   background-color: transparent;
   color: #3b82f6;
   padding: 10px 20px;
@@ -34,7 +34,7 @@ button {
   transition: color 0.3s ease;
 }
 
-.btn::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -46,15 +46,15 @@ button {
   transition: width 0.3s ease;
 }
 
-.btn:hover::before {
+.button:hover::before {
   width: 100%;
 }
 
-.btn:hover {
+.button:hover {
   color: white;
 }
 
-.btn span {
+.button span {
   position: relative;
   z-index: 1;
 }
