@@ -3,6 +3,13 @@ import axios from "axios";
 import styles from "@/styles/Products.module.css";
 import Link from "next/link";
 
+const router = useRouter();
+const { category: categoryQuery, popular } = router.query;
+
+useEffect(() => {
+  if (categoryQuery) setCategory(categoryQuery as string);
+}, [categoryQuery]);
+
 interface Product {
   _id: string;
   name: string;
@@ -25,7 +32,7 @@ export default function ProductsPage() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/products`, {
-        params: { search: searchQuery, category },
+        params: { search: searchQuery, category, popular: popular === "true" ? true : undefined},
       });
       setProducts(response.data);
     } catch (error) {
@@ -33,11 +40,13 @@ export default function ProductsPage() {
     }
   };
 
-  const filteredProducts = products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      product.category.toLowerCase().includes(category.toLowerCase())
-  );
+const filteredProducts = products.filter(
+  (product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+    product.category.toLowerCase().includes(category.toLowerCase()) &&
+    (popular !== "true" || product.popular === true)
+);
+
 
   return (
     <div className={styles.products}>
