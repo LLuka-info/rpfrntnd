@@ -3,7 +3,8 @@
   margin: auto;
   padding: 20px;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
@@ -34,7 +35,7 @@
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .selecT {
@@ -42,7 +43,7 @@
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .checkoutButton {
@@ -50,9 +51,9 @@
   padding: 12px;
   background-color: #89A8B2;
   color: white;
-  border: none;
   font-size: 1rem;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
