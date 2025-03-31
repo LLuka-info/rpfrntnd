@@ -15,12 +15,12 @@
 }
 
 .heroDarkText .heroButton {
-  border-color: #000000;
-  color: #000000;
+  border-color: ##ffffff;
+  color: #ffffff;
 }
 
 .heroDarkText .heroButton:hover {
-  color: rgb(235, 235, 235);
+  color: rgb(0, 0, 0);
   border-color: rgb(0,0,0);
 }
 
@@ -87,7 +87,7 @@
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: #b3e5fc; /* Slide-in pastel background */
+  background-color: rgb(212, 212, 212); /* Slide-in pastel background */
   transition: width 0.4s ease;
   z-index: -1; /* Makes sure text is above background */
 }
