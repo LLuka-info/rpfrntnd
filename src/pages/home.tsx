@@ -15,7 +15,7 @@ export default function HomePage() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const desktopImages = ["/mainPagebg1.png", "/mainPagebg2.png"];
-  const mobileImages = ["/mainPageMobile3.png", "/mainPageMobile2.png"];
+  const mobileImages = ["/mainPageMobile2.png", "/mainPageMobile3.png"];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const backgroundImages = isMobile ? mobileImages : desktopImages;
   useEffect(() => {
