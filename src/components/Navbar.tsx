@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/Navbar.module.css";
 import Image from 'next/image';
+import { useRouter } from "next/router";
 
 interface NavbarProps {
   cart: any[];
@@ -11,6 +12,7 @@ export default function Navbar({ cart }: NavbarProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [username, setUsername] = useState("Cont");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -22,6 +24,16 @@ export default function Navbar({ cart }: NavbarProps) {
     
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
+
+  const handleCategoryClick = (filter: string) => {
+    setDropdownOpen(false);
+    if (filter === "") {
+      // If "Toate" is clicked, reload the page
+      router.push("/products").then(() => window.location.reload());
+    } else {
+      router.push(`/products?category=${filter}`);
+    }
+  };
 
   // Outline-style SVG Icons (stroke only)
   const homeIcon = (
@@ -105,13 +117,12 @@ export default function Navbar({ cart }: NavbarProps) {
           <ul className={`${styles.dropdownMenu} ${dropdownOpen ? styles.show : ''}`}>
             {categories.map((category) => (
               <li key={category.filter}>
-                <Link 
-                  href={`/products?category=${category.filter}`} 
+                <button
+                  onClick={() => handleCategoryClick(category.filter)}
                   className={styles.dropdownItem}
-                  onClick={() => setDropdownOpen(false)}
                 >
                   {category.name}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
