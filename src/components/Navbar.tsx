@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/Navbar.module.css";
 import Image from 'next/image';
+import { useRouter } from "next/router";
 
 interface NavbarProps {
   cart: any[];
@@ -11,6 +12,7 @@ export default function Navbar({ cart }: NavbarProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [username, setUsername] = useState("Cont");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -23,6 +25,16 @@ export default function Navbar({ cart }: NavbarProps) {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
+  const handleCategoryClick = (e: React.MouseEvent, filter: string) => {
+    if (filter === "") {
+      e.preventDefault();
+      setDropdownOpen(false);
+      router.push("/products").then(() => window.location.reload());
+    } else {
+      setDropdownOpen(false);
+    }
+  };
+
   // Outline-style SVG Icons (stroke only)
   const homeIcon = (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -32,7 +44,6 @@ export default function Navbar({ cart }: NavbarProps) {
   );
   const categories = [
     { name: "Toate", filter: "" },
-   // { name: "Populare", filter: "popular" },
     { name: "Tricouri", filter: "tricouri" },
     { name: "Incaltaminte", filter: "incaltaminte" },
     { name: "Geci", filter: "geci" },
@@ -43,12 +54,12 @@ export default function Navbar({ cart }: NavbarProps) {
 
   const clothesIcon = (
     <svg 
-      viewBox="100 0 440 512"  // Adjusted viewBox to focus on the t-shirt
+      viewBox="100 0 440 512"
       width="18" 
       height="18" 
       fill="none" 
-      stroke="currentColor"  // Will inherit the text color
-      strokeWidth="50"       // Thinner stroke for better proportions
+      stroke="currentColor"
+      strokeWidth="50"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
@@ -106,9 +117,9 @@ export default function Navbar({ cart }: NavbarProps) {
             {categories.map((category) => (
               <li key={category.filter}>
                 <Link 
-                  href={`/products?category=${category.filter}`} 
+                  href={category.filter === "" ? "/products" : `/products?category=${category.filter}`}
                   className={styles.dropdownItem}
-                  onClick={() => setDropdownOpen(false)}
+                  onClick={(e) => handleCategoryClick(e, category.filter)}
                 >
                   {category.name}
                 </Link>
