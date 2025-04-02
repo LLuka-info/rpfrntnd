@@ -16,9 +16,7 @@
 }
 
 .logo {
-  display: flex;
   width: 120px;
-  height: auto;
 }
 
 .navLinks {
@@ -61,20 +59,76 @@
   transition: stroke 0.2s ease;
 }
 
-.linkText {
-  white-space: nowrap;
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
 }
 
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: 
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out,
+    visibility 0.2s;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dropdownItem {
+  padding: 10px 16px;
+  color: #1e3a8a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 
+    background 0.2s ease,
+    color 0.2s ease;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background: #f3f4f6;
+  color: #3b82f6;
+}
+
+/* Remove button-like appearance from "Produse" */
+.dropdown .navLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Cart Count Styles */
 .cartCount {
-  margin-left: 0.2rem;
-  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .mobileCartCount {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: #3b82f6;
+  top: -5px;
+  right: -5px;
+  background: #3b82f6;
   color: white;
   border-radius: 50%;
   width: 18px;
@@ -83,13 +137,16 @@
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-/* Mobile styles */
+/* Mobile Styles */
+/* Mobile Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .navbar {
     padding: 0.8rem 1rem;
+    position: relative; /* Ensure navbar contains the dropdown */
   }
   
   .logo {
@@ -97,7 +154,7 @@
   }
   
   .navLinks {
-    gap: 1.5rem;
+    gap: 1.2rem; /* Reduced gap for better mobile fit */
   }
   
   .linkText {
@@ -105,11 +162,67 @@
   }
   
   .navLink {
-    padding: 0.5rem;
+    padding: 0.4rem; /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .icon {
     width: 20px;
     height: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Dropdown container adjustments */
+  .dropdown {
+    position: static; /* Changed from relative for better mobile behavior */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile Dropdown Menu */
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+    margin-top: 0;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .dropdownMenu.show {
+    max-height: 80vh; /* Adjust based on content */
+    overflow-y: auto; /* Add scroll if needed */
+  }
+
+  .dropdownItem {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  /* Fix for the clothes icon alignment */
+  .dropdown .navLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Cart count positioning fix */
+  .mobileCartCount {
+    top: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
   }
 }
