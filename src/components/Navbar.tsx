@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "@/styles/Navbar.module.css";
-import Image from 'next/image';
 
 interface NavbarProps {
   cart: any[];
@@ -17,8 +17,8 @@ export default function Navbar({ cart }: NavbarProps) {
       setIsMobile(window.innerWidth < 768);
     };
     checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   const homeIcon = (
@@ -53,7 +53,7 @@ export default function Navbar({ cart }: NavbarProps) {
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
         <Link href="/" className={styles.logo}>
-          <Image src="/logogog.png" alt="RoPlug" width={120} height={40} style={{ objectFit: 'contain' }} />
+          <Image src="/logogog.png" alt="RoPlug" width={120} height={40} style={{ objectFit: "contain" }} />
         </Link>
       </div>
 
@@ -65,7 +65,6 @@ export default function Navbar({ cart }: NavbarProps) {
           </Link>
         </li>
 
-        {/* Haine dropdown */}
         <li 
           className={styles.navItem} 
           onMouseEnter={() => setShowDropdown(true)} 
@@ -89,7 +88,6 @@ export default function Navbar({ cart }: NavbarProps) {
         <li><Link href="/products?category=incaltaminte" className={styles.navLink}>Încălțăminte</Link></li>
         <li><Link href="/products?popular=true" className={styles.navLink}>Populare</Link></li>
 
-        {/* Mobile dropdown */}
         <li>
           <div onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)} className={styles.navLink}>
             <span className={styles.icon}>{clothesIcon}</span>
@@ -107,7 +105,6 @@ export default function Navbar({ cart }: NavbarProps) {
           )}
         </li>
 
-        {/* Cart and User */}
         <li>
           <Link href="/cart" className={styles.navLink}>
             <span className={styles.icon}>{cartIcon}</span>
