@@ -43,7 +43,7 @@ export default function ProductsPage() {
     { value: "price-asc", label: "Preț (Mic → Mare)" },
     { value: "price-desc", label: "Preț (Mare → Mic)" },
     { value: "newest", label: "Cele mai noi" },
-    { value: "popular", label: "Populare" }
+   // { value: "popular", label: "Populare" }
   ];
 
   useEffect(() => {
