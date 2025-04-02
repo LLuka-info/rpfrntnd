@@ -32,7 +32,7 @@ export default function Navbar({ cart }: NavbarProps) {
   );
   const categories = [
     { name: "Toate", filter: "" },
-    { name: "Populare", filter: "popular" },
+   // { name: "Populare", filter: "popular" },
     { name: "Tricouri", filter: "tricouri" },
     { name: "Incaltaminte", filter: "incaltaminte" },
     { name: "Geci", filter: "geci" },
