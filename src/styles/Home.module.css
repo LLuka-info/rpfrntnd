@@ -14,15 +14,23 @@
   color: white;
 }
 
-.heroDarkText .heroButton {
+.heroDarkText {
   border-color: #ffffff;
   color: #ffffff;
+}
+.heroButton {
+  background: rgba(0, 0, 0, 0.33);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.8px);
+  -webkit-backdrop-filter: blur(9.8px);
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .heroDarkText .heroButton:hover {
   color: rgb(0, 0, 0);
   border-color: rgb(0,0,0);
 }
+
 
 
 .hero {
@@ -66,11 +74,14 @@
 
 
 .heroButton {
-  background-color: transparent;
+  background: rgba(42, 42, 42, 0.2);
+  border-radius: 2px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(245, 245, 245, 0.3);
   color: #ededed;
   padding: 14px 30px;
-  border: 2px solid #ededed;
-  border-radius: 0; /* No rounding */
   font-size: 18px;
   font-weight: bold;
   position: relative;
@@ -87,7 +98,9 @@
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: rgb(212, 212, 212); /* Slide-in pastel background */
+  background: rgba(255, 255, 255, 0.986);/* Slide-in pastel background */
+  border-radius: 2px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition: width 0.4s ease;
   z-index: -1; /* Makes sure text is above background */
 }
