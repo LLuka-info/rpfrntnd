@@ -76,7 +76,7 @@ export default function Navbar({ cart }: NavbarProps) {
           </div>
           {!isMobile && showDropdown && (
             <ul className={styles.dropdown}>
-              {["TrackSuit", "T-shirts", "Jackets | Sweatshirts", "Shorts", "Pants", "Jeans", "Vest"].map((cat) => (
+              {["Tricouri", "Hanorace", "Shorts", "Pantaloni", "Geci"].map((cat) => (
                 <li key={cat}>
                   <Link href={`/products?category=${cat.toLowerCase()}`}>{cat}</Link>
                 </li>
