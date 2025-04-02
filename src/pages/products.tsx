@@ -73,7 +73,7 @@ const filteredProducts = products.filter(
             <option value="pantaloni">Pantaloni</option>
             <option value="hanorace">Hanorace</option>
             <option value="geci">Geci</option>
-            <option value="bluze">Bluze</option>
+            <option value="shorts">Bluze</option>
             <option value="incaltaminte">Încălțăminte</option>
           </select>
         </div>
