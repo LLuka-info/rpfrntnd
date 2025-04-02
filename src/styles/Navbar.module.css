@@ -1,15 +1,17 @@
+/* Navbar Container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 100;
 }
 
+/* Logo */
 .logoContainer {
   display: flex;
   align-items: center;
@@ -21,6 +23,7 @@
   height: auto;
 }
 
+/* Navbar Links */
 .navLinks {
   display: flex;
   list-style: none;
@@ -51,6 +54,7 @@
   stroke: #3b82f6;
 }
 
+/* Icons */
 .icon {
   display: flex;
   align-items: center;
@@ -65,6 +69,7 @@
   white-space: nowrap;
 }
 
+/* Cart Count */
 .cartCount {
   margin-left: 0.2rem;
   font-weight: 600;
@@ -86,28 +91,94 @@
   font-weight: bold;
 }
 
-/* Mobile styles */
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  min-width: 150px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  transform: translateY(-10px);
+}
+
+.navItem:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #1e3a8a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.dropdown a:hover {
+  background: #f0f4ff;
+}
+
+/* Mobile Dropdown */
+.mobileDropdown {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.mobileDropdown li {
+  list-style: none;
+}
+
+.mobileDropdown a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #1e3a8a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.mobileDropdown a:hover {
+  background: #f0f4ff;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     padding: 0.8rem 1rem;
   }
-  
+
   .logo {
     width: 100px;
   }
-  
+
   .navLinks {
     gap: 1.5rem;
   }
-  
+
   .linkText {
     display: none;
   }
-  
+
   .navLink {
     padding: 0.5rem;
   }
-  
+
   .icon {
     width: 20px;
     height: 20px;
